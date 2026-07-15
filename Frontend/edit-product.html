@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Product</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<div class="admin-container">
+
+    <div class="sidebar">
+
+        <h2>Admin Panel</h2>
+
+        <a href="admin.html">Dashboard</a>
+        <a href="admin-products.html">Products</a>
+        <a href="add-product.html">Add Product</a>
+
+    </div>
+
+    <div class="main-content">
+
+        <h1>Edit Product</h1>
+
+        <form id="editProductForm" class="product-form">
+
+            <input
+                type="text"
+                id="brand"
+                placeholder="Brand"
+                required
+            >
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Product Name"
+                required
+            >
+
+            <input
+                type="number"
+                id="price"
+                placeholder="Price"
+                required
+            >
+
+            <input
+                type="text"
+                id="image"
+                placeholder="Image URL"
+                required
+            >
+
+            <select id="category">
+
+                <option value="featured">
+                    Featured
+                </option>
+
+                <option value="newArrival">
+                    New Arrival
+                </option>
+
+            </select>
+
+            <button type="submit">
+                Update Product
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/admin.js"></script>
+
+</body>
+</html>

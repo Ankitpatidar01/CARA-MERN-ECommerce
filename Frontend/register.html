@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+</head>
+<body>
+
+<section id="login">
+
+<div class="login-container register-container">
+
+    <div class="login-image">
+        <img
+            id="login_image"
+            src="image/hero4.png"
+            alt="Register">
+    </div>
+
+    <div class="login-form">
+
+        <h2>Create Account</h2>
+
+        <p>
+         Shop the latest fashion trends
+        </p>
+
+       <form id="registerForm">
+
+    <input
+        type="text"
+        id="name"
+        placeholder="Full Name"
+        required
+    >
+
+    <input
+        type="email"
+        id="email"
+        placeholder="Email Address"
+        required
+    >
+
+    <div class="password-field">
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            required
+        >
+
+        <i
+            class="fa-solid fa-eye toggle-password">
+        </i>
+
+    </div>
+
+    <div class="password-field">
+
+        <input
+            type="password"
+            id="confirmPassword"
+            placeholder="Confirm Password"
+            required
+        >
+
+        <i
+            class="fa-solid fa-eye toggle-password">
+        </i>
+
+    </div>
+
+    <label class="terms">
+
+        <input
+            type="checkbox"
+            required
+        >
+
+        <span>
+            I agree to the
+            <a href="#">Terms & Conditions</a>
+        </span>
+
+    </label>
+
+    <p class="error-msg"></p>
+
+    <button id="registerBtn" type="submit">
+        Register
+    </button>
+
+</form>
+
+
+<p class="register-text">
+    Already have an account?
+    <a href="login.html">Login</a>
+</p>
+
+
+    </div>
+
+</div>
+
+
+</section>
+
+<script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+
+</body>
+</html>

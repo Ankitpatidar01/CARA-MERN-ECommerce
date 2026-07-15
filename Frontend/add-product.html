@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>Add Product</title>
+
+    <link rel="stylesheet" href="admin.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="admin-container">
+
+     <button class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+
+
+    <div class="sidebar">
+
+        <h2>Admin Panel</h2>
+
+        <a href="admin.html">
+            <i class="fas fa-chart-line"></i>
+            Dashboard
+        </a>
+
+        <a href="admin-products.html">
+            <i class="fas fa-box"></i>
+            Products
+        </a>
+
+        <a href="add-product.html" class="active">
+            <i class="fas fa-plus"></i>
+            Add Product
+        </a>
+
+    </div>
+
+    <div class="main-content">
+
+        <div class="page-header">
+            <h1>Add Product</h1>
+        </div>
+
+        <form id="productForm" class="product-form">
+
+            <input
+                type="text"
+                id="brand"
+                placeholder="Brand"
+                required>
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Product Name"
+                required>
+
+            <input
+                type="number"
+                id="price"
+                placeholder="Price"
+                required>
+
+            <input
+                type="text"
+                id="image"
+                placeholder="Image URL"
+                required>
+
+            <select id="category">
+
+                <option value="featured">
+                    Featured
+                </option>
+
+                <option value="newArrival">
+                    New Arrival
+                </option>
+
+            </select>
+
+            <button type="submit">
+                Add Product
+            </button>
+
+            <p id="success-msg"></p>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/admin.js"></script>
+
+</body>
+</html>
