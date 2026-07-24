@@ -1,0 +1,11 @@
+import express from "express";
+import { getProfile , updateProfile} from "../controllers/user.controller.js";
+import { verifyJWT } from "../middleware/verifyJWT.js";
+
+const router = express.Router();
+
+// Get Logged-in User Profile
+router.get("/profile", verifyJWT, getProfile);
+router.put("/profile", verifyJWT, updateProfile);
+
+export default router;

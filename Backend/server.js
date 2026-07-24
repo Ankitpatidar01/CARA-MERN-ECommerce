@@ -12,7 +12,7 @@ const startServer = async () => {
     console.log("Database Connection successful");
 
     app.listen(5050, () => {
-      console.log("Authentication server started on port 3000...");
+      console.log("Authentication server started on port 5050...");
     });
   } catch (err) {
     console.error("Failed to start server:", err);
