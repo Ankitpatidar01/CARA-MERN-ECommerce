@@ -2,32 +2,36 @@ import jwt from "jsonwebtoken";
 
 export const verifyJWT = (req, res, next) => {
 
-   try {
+    console.log("Authorization Header:", req.headers.authorization);
 
-      const token =
-         req.headers.authorization?.split(" ")[1];
+    try {
 
-      if (!token) {
-         return res.status(401).json({
-            message: "Unauthorized"
-         });
-      }
+        const token = req.headers.authorization?.split(" ")[1];
 
-      const decoded = jwt.verify(
-         token,
-         process.env.JWT_SECRET
-      );
+        console.log("Extracted Token:", token);
 
-      req.user = decoded;
+        if (!token) {
+            return res.status(401).json({
+                message: "Unauthorized"
+            });
+        }
 
-      next();
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-   } catch (err) {
+        console.log("Decoded Token:", decoded);
 
-      return res.status(401).json({
-         message: "Invalid token"
-      });
+        req.user = decoded;
 
-   }
+        next();
+
+    } catch (err) {
+
+        console.log("JWT Error:", err.message);
+
+        return res.status(401).json({
+            message: "Invalid token"
+        });
+
+    }
 
 };

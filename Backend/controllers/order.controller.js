@@ -1,9 +1,6 @@
 import Order from "../models/order.model.js";
 import Cart from "../models/cart.model.js";
 
-// ===============================
-// CREATE ORDER
-// ===============================
 
 export const createOrder = async (req, res) => {
 
@@ -60,9 +57,6 @@ export const createOrder = async (req, res) => {
 
 };
 
-// ===============================
-// GET MY ORDERS
-// ===============================
 
 export const getMyOrders = async (req, res) => {
 
@@ -72,7 +66,9 @@ export const getMyOrders = async (req, res) => {
             .populate("products.productId")
             .sort({ createdAt: -1 });
 
-        res.status(200).json(orders);
+        res.status(200).json({success: true,
+        count: orders.length,
+        orders});
 
     }
     catch (error) {

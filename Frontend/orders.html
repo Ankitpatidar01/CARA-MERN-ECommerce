@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Orders | CARA</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/orders.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+    <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+    <section id="header">
+
+        <a href="index.html">
+            <img src="image/logo.png" class="logo" alt="Logo">
+        </a>
+
+        <div>
+
+            <ul id="navbar">
+                
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+
+                <li id="lg-bag">
+
+                    <a href="cart.html" class="cart-icon">
+
+                        <i class="fas fa-shopping-bag"></i>
+
+                        <span id="cart-count">0</span>
+
+                    </a>
+
+                </li>
+
+                <li id="user-menu">
+
+                    <a href="#" id="user-btn">
+
+                        <i class="fas fa-user-circle"></i>
+
+                        <span id="user-name">Login</span>
+
+                    </a>
+
+                    <ul id="user-dropdown" class="user-dropdown">
+
+                        <li><a href="profile.html"><i class="fas fa-user"></i> My Profile</a></li>
+
+                        <li><a class="active" href="orders.html"><i class="fas fa-box"></i> My Orders</a></li>
+
+                        <li><a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+
+                    </ul>
+
+                </li>
+
+                <a href="#" id="close"><i class="far fa-times"></i></a>
+
+            </ul>
+
+        </div>
+
+        <div id="mobile">
+
+            <a href="cart.html" class="cart-icon">
+
+                <i class="fas fa-shopping-bag"></i>
+
+                <span id="cart-count-mobile">0</span>
+
+            </a>
+
+            <i id="bar" class="far fa-outdent"></i>
+
+        </div>
+
+    </section>
+
+
+    <section class="orders-hero">
+
+        <div class="hero-content">
+
+            <div class="hero-left">
+
+                <h1>My Orders</h1>
+
+                <p>Track all your purchases in one place.</p>
+
+            </div>
+
+            <div class="hero-right">
+
+                <img src="image/order-banner.png" alt="Orders">
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="orders-toolbar">
+
+        <div class="toolbar-left">
+
+            <button class="filter-btn active" data-filter="all">
+                <i class="fa-solid fa-box"></i>
+                All Orders
+            </button>
+
+            <button class="filter-btn" data-filter="Processing">
+                <i class="fa-solid fa-clock"></i>
+                Processing
+            </button>
+
+            <button class="filter-btn" data-filter="Shipped">
+                <i class="fa-solid fa-truck"></i>
+                Shipped
+            </button>
+
+            <button class="filter-btn" data-filter="Delivered">
+                <i class="fa-solid fa-circle-check"></i>
+                Delivered
+            </button>
+
+            <button class="filter-btn" data-filter="Cancelled">
+                <i class="fa-solid fa-ban"></i>
+                Cancelled
+            </button>
+
+        </div>
+
+        <div class="toolbar-right">
+
+            <select id="sortOrders">
+
+                <option value="newest">Newest First</option>
+                <option value="oldest">Oldest First</option>
+
+            </select>
+
+        </div>
+
+    </section>
+
+
+    <section id="orders-loading" class="orders-wrapper" style="display:none">
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+    </section>
+
+    <section id="orders-empty" style="display:none;">
+
+        <img src="image/empty-order.webp" alt="Empty">
+
+        <h2>No Orders Found</h2>
+
+        <p>You haven't placed any order yet.</p>
+
+        <a href="shop.html" class="normal">
+
+            Continue Shopping
+
+        </a>
+
+    </section>
+
+
+    <section id="orders-container" class="orders-wrapper">
+
+    </section>
+
+
+    <section class="orders-pagination">
+
+        <button id="prevPage" class="page-btn">
+
+            <i class="fa-solid fa-chevron-left"></i>
+
+        </button>
+
+        <div id="paginationNumbers" class="pagination-numbers">
+
+       </div>
+
+        <button id="nextPage" class="page-btn">
+
+            <i class="fa-solid fa-chevron-right"></i>
+
+        </button>
+
+    </section>
+
+    <template id="orderTemplate">
+
+        <input type="hidden" class="order-db-id">
+
+            <div class="order-header">
+
+                <div class="header-left">
+
+                    <div class="order-icon">
+
+                        <i class="fa-solid fa-box-open"></i>
+                    </div>
+
+                    <div class="order-info">
+
+                        <h3 class="order-id"></h3>
+
+                        <span class="order-date"></span>
+
+                    </div>
+
+                </div>
+
+                <div class="header-middle">
+
+                    <div class="payment-status"></div>
+
+                    <div class="delivery-status"></div>
+
+                </div>
+
+                <div class="header-right">
+
+                    <div class="item-count">
+
+                        <strong></strong>
+
+                        <span>Items</span>
+
+                    </div>
+
+                    <div class="order-total">
+
+                        <small>Total</small>
+
+                        <h2></h2>
+
+                    </div>
+
+                    <button type="button" class="details-btn">
+
+                        View Details
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="products-container">
+
+            </div>
+
+        </div>
+
+    </template>
+
+    <template id="productTemplate">
+
+        <div class="product-row">
+
+            <div class="product-image">
+
+                <img src="" alt="Product">
+
+            </div>
+
+            <div class="product-info">
+
+                <h4 class="product-name"></h4>
+                <p class="product-brand"></p>
+                <p class="product-size"></p>
+                <p class="product-color"></p>
+
+            </div>
+
+            <div class="product-qty"></div>
+
+            <div class="product-price"></div>
+
+            <div class="product-subtotal"></div>
+
+        </div>
+
+    </template>
+
+  
+    <footer class="section-p1">
+
+        <div class="copyright">
+
+            <p><i class="fas fa-copyright"></i> 2025. Made By Ankit Patidar <i class="fas fa-heart red-heart"></i></p>
+
+        </div>
+
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/orders.js"></script>
+
+</body>
+
+</html>

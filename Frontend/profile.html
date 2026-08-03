@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Profile | CARA</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/profile.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+  <section id="header">
+
+        <a href="index.html">
+            <img src="image/logo.png" class="logo" alt="Logo">
+        </a>
+
+        <div>
+
+            <ul id="navbar">
+
+                <li><a href="index.html">Home</a></li>
+
+                <li><a href="shop.html">Shop</a></li>
+
+                <li><a href="blog.html">Blog</a></li>
+
+                <li><a href="about.html">About</a></li>
+
+                <li><a href="contact.html">Contact</a></li>
+
+                <li id="lg-bag">
+
+                    <a href="cart.html" class="cart-icon">
+
+                        <i class="fas fa-shopping-bag"></i>
+
+                        <span id="cart-count">0</span>
+
+                    </a>
+
+                </li>
+
+                <li id="user-menu">
+
+                    <a href="#" id="user-btn">
+
+                        <i class="fas fa-user-circle"></i>
+
+                        <span id="user-name">Login</span>
+
+                    </a>
+
+                    <ul id="user-dropdown" class="user-dropdown">
+
+                        <li><a href="profile.html"><i class="fas fa-user"></i> My Profile</a></li>
+
+                        <li><a class="active" href="orders.html"><i class="fas fa-box"></i> My Orders</a></li>
+
+                        <li><a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+
+                    </ul>
+
+                </li>
+
+                <a href="#" id="close"><i class="far fa-times"></i></a>
+
+            </ul>
+
+        </div>
+
+        <div id="mobile">
+
+            <a href="cart.html" class="cart-icon">
+
+                <i class="fas fa-shopping-bag"></i>
+
+                <span id="cart-count-mobile">0</span>
+
+            </a>
+
+            <i id="bar" class="far fa-outdent"></i>
+
+        </div>
+
+    </section>
+
+    <section class="profile-hero">
+
+        <div class="hero-content">
+
+            <div class="hero-left">
+
+                <h1>My Profile</h1>
+
+                <p>Manage your personal information and account settings.</p>
+
+            </div>
+
+            <div class="hero-right">
+
+                <img src="image/profile-banner.svg" alt="Profile">
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="profile-wrapper">
+
+        <div class="profile-sidebar">
+
+            <div class="profile-card">
+
+                <div class="avatar">
+
+                    <span id="avatarLetter">A</span>
+
+                </div>
+
+                <h2 id="userName">Loading...</h2>
+
+                <p id="userEmail">Loading...</p>
+
+                <button id="editProfileBtn">
+
+                    <i class="fa-solid fa-pen"></i>
+
+                    Edit Profile
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="profile-content">
+
+
+            <div class="info-card">
+
+                <div class="card-header">
+
+                    <h3>
+
+                        <i class="fa-solid fa-user"></i>
+
+                        Personal Information
+
+                    </h3>
+
+                </div>
+
+                <div class="info-grid">
+
+                    <div class="info-item">
+
+                        <label>Full Name</label>
+
+                        <span id="profileName">-</span>
+
+                    </div>
+
+                    <div class="info-item">
+
+                        <label>Email</label>
+
+                        <span id="profileEmail">-</span>
+
+                    </div>
+
+                    <div class="info-item">
+
+                        <label>Phone</label>
+
+                        <span id="profilePhone">-</span>
+
+                    </div>
+
+                    <div class="info-item">
+
+                        <label>Joined</label>
+
+                        <span id="profileJoined">-</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="card-header">
+
+                    <h3>
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                        Default Address
+
+                    </h3>
+
+                </div>
+
+                <div class="info-grid">
+
+                    <div class="info-item full">
+
+                        <label>Address</label>
+
+                        <span id="profileAddress">No Address Added</span>
+
+                    </div>
+
+                    <div class="info-item">
+
+                        <label>City</label>
+
+                        <span id="profileCity">-</span>
+
+                    </div>
+
+                    <div class="info-item">
+
+                        <label>State</label>
+
+                        <span id="profileState">-</span>
+
+                    </div>
+
+                    <div class="info-item">
+
+                        <label>Pincode</label>
+
+                        <span id="profilePincode">-</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="info-card">
+
+                <div class="card-header">
+
+                    <h3>
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        Security
+
+                    </h3>
+
+                </div>
+
+                <div class="security-box">
+
+                    <div>
+
+                        <label>Password</label>
+
+                        <p>**************</p>
+
+                    </div>
+
+                    <button id="changePasswordBtn">
+
+                        Change Password
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    
+      <footer class="section-p1">
+
+        <div class="copyright">
+
+            <p><i class="fas fa-copyright"></i> 2025. Made By Ankit Patidar <i class="fas fa-heart red-heart"></i></p>
+
+        </div>
+
+    </footer>
+
+
+    <script src="js/config.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/profile.js"></script>
+
+</body>
+
+</html>
