@@ -41,7 +41,7 @@ export async function register(req, res) {
       role: user.role
    },
       process.env.JWT_SECRET,
-      { expiresIn: "15m" }
+      { expiresIn: "1h" }
    );
 
 
@@ -52,6 +52,7 @@ export async function register(req, res) {
       id: user._id,
       role: user.role
    },
+   
       process.env.JWT_SECRET,
       { expiresIn: "7d" }
     );
@@ -98,38 +99,6 @@ export async function register(req, res) {
   }
 }
 
-// export async function getMe(req , res) {
-//     const token = req.headers.authorization?.split(" ")[1];
-
-//     // it is so because when we get request from particular user then in its header we have authrorization value as Bearer <token>
-//     // so we split this Bearer and token by split(" ") ans then get string at index 1 which is out token
-
-//     if(!token){
-//       return res.status(401).json({message: "Token not found"})
-//     }
-
-//     const decoded = jwt.verify(token , process.env.JWT_SECRET) // verify token with secret key
-
-//     // though we created token with user id so when  we decode this we get all this data again which are used in its formation
-
-//     // console.log(decode);
-//     // Example ------ this will be printed when we console decode
-//     // { id: '69ad641e4a7248538c3a72e1', iat: 1772971039, exp: 1773057439 }
-//      // GET /api/auth/get-me - - ms - -
-
-//     const user = await userModel.findById(decoded.id);
-
-//     res.status(200).json({
-//       message:"user fetched successfully" , 
-//       user : {
-//         username : user.username,
-//         email : user.email,
-
-//       }
-//     })
-
-
-// }
 
 export async function refreshToken(req, res) {
 
@@ -139,7 +108,7 @@ export async function refreshToken(req, res) {
 
       if (!token) {
          return res.status(401).json({
-            message: "Refresh token missing"
+            "message": "Session expired"
          });
       }
 
@@ -163,7 +132,7 @@ export async function refreshToken(req, res) {
       const accessToken = jwt.sign(
          { id: user._id },
          process.env.JWT_SECRET,
-         { expiresIn: "15m" }
+         { expiresIn: "1h" }
       );
 
     
@@ -282,7 +251,7 @@ export async function login(req, res) {
             role: user.role
          },
          process.env.JWT_SECRET,
-         { expiresIn: "15m" }
+         { expiresIn: "1h" }
       );
 
       // Generate refresh token

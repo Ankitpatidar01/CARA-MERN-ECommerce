@@ -8,7 +8,7 @@ import app from "./app.js";
 
 const startServer = async () => {
   try {
-    await mongoose.connect("mongodb://localhost:27017/CARA");
+    await mongoose.connect(process.env.MONGODB_URI);
     console.log("Database Connection successful");
 
     app.listen(5050, () => {
